@@ -1,0 +1,3 @@
+document.addEventListener('DOMContentLoaded', function (event) {
+	// indsæt kode her...
+});

@@ -1,0 +1,36 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 110%/1em normal normal Helvetica, arial, verdana, sans-serif;
+}
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+nav {
+	background-color: black;
+	color: white;
+	height: 50px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+nav li:not(:first-of-type) {
+	padding: 0 15px;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+}
