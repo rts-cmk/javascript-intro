@@ -73,7 +73,7 @@ URL'en i JavaScript har hjemme i objektet `window.location`.
 > Udskriv objektet `window.location` i konsollen ved hjælp af filerne i opg2-mappen.  
 > Hvad sker der med objektet, når du klikker på de forskellige links i toppen af siden?
 
-Den del af URL'en som indeholder `?klik=1` hedder en "query string". En query string kan indeholder flere parametre, adskilt af `&`: `?klik=1&brugerID=42`.
+Den del af URL'en som indeholder `?klik=1` hedder en "query string". En query string kan indeholder flere parametre, adskilt af `&` på denne måde: `?klik=1&brugerID=42`.
 
 > ### Opgave 2.1
 > Hvilken del af `window.location` objektet indeholder en URL's query string?
@@ -91,3 +91,17 @@ console.log(searchParams.get('ostemad')); // output: null (fordi parametret ikke
 > ### Opgave 2.2
 > Lav en betinget sætning i opg2-mappen, som kun udskriver noget, hvis der er en URL query string.  
 > I konsollen skal der stå: Du har klikket på _n_.
+
+En let måde at sætte noget indhold ind i din DOM er ved hjælp af `element.innerHTML`.
+
+```JavaScript
+document.querySelector('h1').innerHTML = 'Hej verden!';
+```
+
+> ### Opgave 2.3
+> Brug `element.innerHTML` til at sætte indholdet fra konsollen i opgave 2.2 ind i P-tagget, der har klassen "info".
+
+## Refleksion
+Brug pladsen herunder til at reflektere over hvilke muligheder det, du har lært i opgaverne ovenfor, giver.
+
+For eksempel: Hvad kan jeg bruge URL parametre til? Hvordan?
