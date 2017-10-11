@@ -70,7 +70,28 @@ http://javascript.info/dom-navigation
 
 10. Opret et div-element med tekst, lav en klon og tilføj en ny tekst til klonen. Vis begge div-elementer på siden.
 
-### Øvlese 3: Generer kodeblokke
+
+### Øvlese 3: fetch
+Efter introduktion til fetch med eksemplet herunder er din opgave
+1. Hent så mange informationer fra api'en og generer et dynamisk html-dokument 
+
+```javascript
+document.addEventListener('DOMContentLoaded', function (event) {
+
+    fetch('https://swapi.co/api/people/')
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log(json);
+            var content = document.getElementById('content');
+            content.innerHTML = '<h1>' + json.results[0].name + '</h1>';
+        })
+
+});
+```
+
+### Øvlese 4: Generer kodeblokke
 1. Opret flg. eller tilsvarende html-dokument
 
 Kilde: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure 
@@ -99,6 +120,8 @@ Kilde: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/
 
 
 Opret herefter js-fil, som generer flg. kodeblokke
+
+Alt data oprettes i et json, for øvelsens skyld, og hentes ud vha. fetch
 
 En Header 
 ```html
@@ -167,3 +190,4 @@ En Header
       <p>©Copyright 2050 by nobody. All rights reversed.</p>
     </footer>
 ```
+
