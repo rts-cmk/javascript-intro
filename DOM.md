@@ -73,7 +73,7 @@ http://javascript.info/dom-navigation
 
 ### Øvlese 3: fetch
 Efter introduktion til fetch med eksemplet herunder er din opgave
-1. Hent så mange informationer fra api'en og generer et dynamisk html-dokument 
+1. Hent en række forskellige informationer fra api'en og generer et dynamisk html-dokument 
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -88,6 +88,43 @@ document.addEventListener('DOMContentLoaded', function (event) {
             content.innerHTML = '<h1>' + json.results[0].name + '</h1>';
         })
 
+});
+```
+
+`løsningsforlag (på opfordring :-)`
+```javascript
+document.addEventListener('DOMContentLoaded', function (event) {
+
+    const content = document.querySelector('#content');
+    fetch('https://swapi.co/api/people/')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (json) {
+            json.results.forEach(function (figure) {
+
+                // opret et h3 med figure-name og tilføj til content
+                let h3 = document.createElement('h3');
+                h3.appendChild(document.createTextNode(`${figure.name}`))
+                content.appendChild(h3);
+
+                // opret liste med filmtitler
+                let ul = document.createElement('ul');
+                figure.films.forEach(function (film) {
+                    fetch(film)
+                        .then(function (responseFilms) {
+                            return responseFilms.json();
+                        }).then(function (films) {
+                            li = document.createElement('li');
+                            li.appendChild(document.createTextNode(`${films.title}`))
+                            ul.appendChild(li);
+                        })
+                });
+
+                // tilføj listen til h3 når forEach'en er afsluttet
+                h3.after(ul);
+            });
+        })
 });
 ```
 
@@ -190,4 +227,3 @@ En Header
       <p>©Copyright 2050 by nobody. All rights reversed.</p>
     </footer>
 ```
-
